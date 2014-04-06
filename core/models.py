@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#
+
 from django.db import models
 import datetime
 
@@ -24,6 +24,9 @@ class Person(models.Model):
 
 
 class Offer(models.Model):
+	beacon_uuid = models.CharField(max_length=255)
+	beacon_minor = models.IntegerField()
+	beacon_major = models.IntegerField()
 	business = models.ForeignKey('Business')
 	issued_date = models.DateTimeField(default=datetime.datetime.now)
 	description = models.CharField(max_length=255)
